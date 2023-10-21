@@ -2,34 +2,93 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 
-// TODO: Create an array of questions for user input
 const questions = [
-  "What is the title of your project?",
-  "Description",
-  "Would you like a table of contents?",
-  "Installation",
-  "Usage",
-  "Credits",
-  "License",
-  "Badges",
-  "Features",
-  "How to Contribute",
-  "Tests",
+  "Title:",
+  "Description: ",
+  "Table of Contents: ",
+  "Installation: ",
+  "Usage: ",
+  "Credits: ",
+  "License: ",
+  "Badges: ",
+  "Features: ",
+  "How to Contribute: ",
+  "Tests: ",
 ];
 
-function handleUserInput() {
+function fetchUserInput() {
   let answers = [];
-  for (const question of questions) {
-    inquirer
-      .prompt({
+  inquirer
+    .prompt([
+      {
         type: "input",
-        message: question,
-        name: "answer",
-      })
-      .then((response) => {
-        answers.push(response.answer);
-      });
-  }
+        message: questions[0],
+        name: "titleAnswer",
+      },
+      {
+        type: "input",
+        message: questions[1],
+        name: "descrAnswer",
+      },
+      {
+        type: "input",
+        message: questions[2],
+        name: "tableOfContentsAnswer",
+      },
+      {
+        type: "input",
+        message: questions[3],
+        name: "installAnswer",
+      },
+      {
+        type: "input",
+        message: questions[4],
+        name: "usageAnswer",
+      },
+      {
+        type: "input",
+        message: questions[5],
+        name: "creditsAnswer",
+      },
+      {
+        type: "input",
+        message: questions[6],
+        name: "licenseAnswer",
+      },
+      {
+        type: "input",
+        message: questions[7],
+        name: "badgesAnswer",
+      },
+      {
+        type: "input",
+        message: questions[8],
+        name: "featuresAnswer",
+      },
+      {
+        type: "input",
+        message: questions[9],
+        name: "contributeAnswer",
+      },
+      {
+        type: "input",
+        message: questions[10],
+        name: "testsAnswer",
+      },
+    ])
+    .then((response) => {
+      answers.push(response.titleAnswer);
+      answers.push(response.descrAnswer);
+      answers.push(response.tableOfContentsAnswer);
+      answers.push(response.intallAnswer);
+      answers.push(response.usageAnswer);
+      answers.push(response.creditsAnswer);
+      answers.push(response.licenseAnswer);
+      answers.push(response.badgesAnswer);
+      answers.push(response.featuresAnswer);
+      answers.push(response.contributeAnswer);
+      answers.push(response.testsAnswer);
+    });
   console.log(answers);
 }
 
@@ -38,7 +97,7 @@ function writeToFile(fileName, data) {}
 
 // TODO: Create a function to initialize app
 function init() {
-  handleUserInput();
+  fetchUserInput();
 }
 
 // Function call to initialize app
