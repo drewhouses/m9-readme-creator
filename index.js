@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer");
 const fs = require("fs");
+const generateMarkdown = require("./utils/generateMarkdown");
 
 const questions = [
   "Title:",
@@ -23,81 +24,88 @@ function fetchUserInput() {
       {
         type: "input",
         message: questions[0],
-        name: "titleAnswer",
+        name: "title",
       },
       {
         type: "input",
         message: questions[1],
-        name: "descrAnswer",
+        name: "desc",
       },
       {
         type: "input",
         message: questions[2],
-        name: "tableOfContentsAnswer",
+        name: "contents",
       },
       {
         type: "input",
         message: questions[3],
-        name: "installAnswer",
+        name: "install",
       },
       {
         type: "input",
         message: questions[4],
-        name: "usageAnswer",
+        name: "usage",
       },
       {
         type: "input",
         message: questions[5],
-        name: "creditsAnswer",
+        name: "credits",
       },
       {
         type: "input",
         message: questions[6],
-        name: "licenseAnswer",
+        name: "license",
       },
       {
         type: "input",
         message: questions[7],
-        name: "badgesAnswer",
+        name: "badges",
       },
       {
         type: "input",
         message: questions[8],
-        name: "featuresAnswer",
+        name: "features",
       },
       {
         type: "input",
         message: questions[9],
-        name: "contributeAnswer",
+        name: "contribute",
       },
       {
         type: "input",
         message: questions[10],
-        name: "testsAnswer",
+        name: "tests",
       },
     ])
     .then((response) => {
-      answers.push(response.titleAnswer);
-      answers.push(response.descrAnswer);
-      answers.push(response.tableOfContentsAnswer);
-      answers.push(response.intallAnswer);
-      answers.push(response.usageAnswer);
-      answers.push(response.creditsAnswer);
-      answers.push(response.licenseAnswer);
-      answers.push(response.badgesAnswer);
-      answers.push(response.featuresAnswer);
-      answers.push(response.contributeAnswer);
-      answers.push(response.testsAnswer);
+      // answers.push(response.title);
+      // answers.push(response.desc);
+      // answers.push(response.contents);
+      // answers.push(response.install);
+      // answers.push(response.usage);
+      // answers.push(response.credits);
+      // answers.push(response.license);
+      // answers.push(response.badges);
+      // answers.push(response.features);
+      // answers.push(response.contribute);
+      // answers.push(response.tests);
+      // console.log(answers);
+      return response;
     });
-  console.log(answers);
 }
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+  //
+  fs.appendFile(fileName, data, (err) =>
+    err ? console.error(err) : console.log("ReadMe generated!")
+  );
+}
 
 // TODO: Create a function to initialize app
 function init() {
-  fetchUserInput();
+  // fetchUserInput();
+  writeToFile("test.md", fetchUserInput());
 }
 
 // Function call to initialize app
