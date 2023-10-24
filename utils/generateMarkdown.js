@@ -23,8 +23,6 @@ function renderLicenseSection(license) {
 function generateMarkdown(data) {
   const licenseLink = renderLicenseLink(data.license);
   const licenseSection = renderLicenseSection(data.license);
-  console.log(data);
-  console.log("This my data" + data.title);
   return `# ${data.title}
   ## Description 
   ${data.desc}
