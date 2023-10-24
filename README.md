@@ -23,10 +23,14 @@ Given the user's input, this application will dynamically create a ReadMe for yo
 
   Once installed, execute the command "node <path-to-file>/index.js" and fill out all the fields. Once all the questions have been answered, the ReadMe file will be generated in the same directory with the name 'yourREADME.md'.
 
+  Here is a link to a demonstration:
+  [Demo](https://drive.google.com/file/d/1lPlgMk4VkyvDpZF1ncmdJ27Kgtyj8oi3/view)
+
   ## Credits
 
-  Drew, NodeJS, Inquirer package
+- NodeJS
+- Inquirer package
 
-  ## License
+## License
 
     <img alt="Static Badge" src="https://img.shields.io/badge/MIT%20License-1350c22">
