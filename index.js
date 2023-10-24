@@ -93,7 +93,7 @@ function init() {
       },
     ])
     .then((response) => {
-      writeToFile("test.md", generateMarkdown(response));
+      writeToFile("yourREADME.md", generateMarkdown(response));
     });
 }
 
